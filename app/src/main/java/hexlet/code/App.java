@@ -1,21 +1,24 @@
 package hexlet.code;
 
-import picocli.CommandLine;
-
 import java.io.IOException;
 import java.util.concurrent.Callable;
+import picocli.CommandLine;
 
 @SuppressWarnings({"unused", "FieldMayBeFinal"})
-@CommandLine.Command(name= "gendiff" , description = "Compares two configuration files and shows a difference.",
-        mixinStandardHelpOptions=true)
+@CommandLine.Command(name = "gendiff",
+        description = "Compares two configuration files and shows a difference.",
+        mixinStandardHelpOptions = true)
 public class App implements Callable<Integer> {
-    @CommandLine.Parameters(index = "0", paramLabel = "filepath1", description = "path to first file")
+    @CommandLine.Parameters(index = "0", paramLabel = "filepath1",
+            description = "path to first file")
     private String filePath1;
 
-    @CommandLine.Parameters(index = "1", paramLabel = "filepath2", description = "path to second file")
+    @CommandLine.Parameters(index = "1", paramLabel = "filepath2",
+            description = "path to second file")
     private String filePath2;
 
-    @CommandLine.Option(names = { "-f", "--format" }, description = "output format [default: stylish]")
+    @CommandLine.Option(names = { "-f", "--format" },
+            description = "output format [default: stylish]")
     private String format = "stylish";
 
     @CommandLine.Option(names = { "-h", "--help" }, usageHelp = true,
