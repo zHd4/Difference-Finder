@@ -8,5 +8,5 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - run: ./gradlew checkstyleMain
-      - run: ./gradlew checkstyleTest
+      - run: ./app/gradlew checkstyleMain
+      - run: ./app/gradlew checkstyleTest
