@@ -1,4 +1,4 @@
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import hexlet.code.Differ;
 import java.io.IOException;
@@ -21,6 +21,6 @@ public class DifferTest {
                   + verbose: true
                 }""";
 
-        assertThat(actual).isEqualTo(expected);
+        assertEquals(expected, actual);
     }
 }
