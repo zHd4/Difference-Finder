@@ -9,7 +9,7 @@ import java.util.TreeSet;
 
 public class Differ {
     @SuppressWarnings("unchecked")
-    public static String generate(String path1, String path2) throws IOException {
+    public static String generateJsonDiff(String path1, String path2) throws IOException {
         StringBuilder result = new StringBuilder("{\n");
         ObjectMapper mapper = new ObjectMapper();
 
@@ -55,5 +55,9 @@ public class Differ {
         result.append("}");
 
         return result.toString();
+    }
+
+    public static String generateYamlDiff(String path1, String path2) {
+        return null;
     }
 }

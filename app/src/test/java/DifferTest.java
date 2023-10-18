@@ -5,13 +5,7 @@ import java.io.IOException;
 import org.junit.jupiter.api.Test;
 
 public class DifferTest {
-    @Test
-    void testGenerate() throws IOException {
-        String filePath1 = "./src/test/resources/file1.json";
-        String filePath2 = "./src/test/resources/file2.json";
-
-        String actual = Differ.generate(filePath1, filePath2);
-        String expected = """
+    private static final String expectedDiff = """
                 {
                   - follow: false
                     host: hexlet.io
@@ -21,6 +15,23 @@ public class DifferTest {
                   + verbose: true
                 }""";
 
-        assertEquals(expected, actual);
+    @Test
+    void testJsonDiff() throws IOException {
+        String filePath1 = "./src/test/resources/file1.json";
+        String filePath2 = "./src/test/resources/file2.json";
+
+        String actual = Differ.generateJsonDiff(filePath1, filePath2);
+
+        assertEquals(expectedDiff, actual);
+    }
+
+    @Test
+    void testYamlDiff() {
+        String filePath1 = "./src/test/resources/file1.yml";
+        String filePath2 = "./src/test/resources/file2.yml";
+
+        String actual = Differ.generateYamlDiff(filePath1, filePath2);
+
+        assertEquals(expectedDiff, actual);
     }
 }

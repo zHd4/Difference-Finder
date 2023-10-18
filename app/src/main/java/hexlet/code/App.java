@@ -37,7 +37,7 @@ public class App implements Callable<Integer> {
     @Override
     public Integer call() throws IOException {
         if (this.filePath1 != null && this.filePath2 != null) {
-            System.out.println(Differ.generate(filePath1, filePath2));
+            System.out.println(Differ.generateJsonDiff(filePath1, filePath2));
         }
 
         return 0;
