@@ -8,13 +8,11 @@ import java.util.Set;
 import java.util.TreeSet;
 
 public class Differ {
-    @SuppressWarnings("unchecked")
     public static String generateJsonDiff(String path1, String path2) throws IOException {
         StringBuilder result = new StringBuilder("{\n");
-        ObjectMapper mapper = new ObjectMapper();
 
-        Map<String, Object> map1 = mapper.readValue(new File(path1), Map.class);
-        Map<String, Object> map2 = mapper.readValue(new File(path2), Map.class);
+        Map<String, Object> map1 = Parser.parseFlatJsonFile(path1);
+        Map<String, Object> map2 = Parser.parseFlatJsonFile(path2);
 
         Set<String> keys = new TreeSet<>(map1.keySet());
         keys.addAll(map2.keySet());
