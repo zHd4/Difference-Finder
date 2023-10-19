@@ -20,17 +20,17 @@ public class DifferTest {
         String filePath1 = "./src/test/resources/file1.json";
         String filePath2 = "./src/test/resources/file2.json";
 
-        String actual = Differ.generateJsonDiff(filePath1, filePath2);
+        String actual = Differ.generate(filePath1, filePath2);
 
         assertEquals(expectedDiff, actual);
     }
 
     @Test
-    void testYamlDiff() {
+    void testYamlDiff() throws IOException {
         String filePath1 = "./src/test/resources/file1.yml";
         String filePath2 = "./src/test/resources/file2.yml";
 
-        String actual = Differ.generateYamlDiff(filePath1, filePath2);
+        String actual = Differ.generate(filePath1, filePath2);
 
         assertEquals(expectedDiff, actual);
     }
