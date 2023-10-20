@@ -1,7 +1,9 @@
 package hexlet.code.differs;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 
 public interface IDiffer {
-    String generate(String path1, String path2) throws IOException;
+    List<Map<Object, Object>> generate(String path1, String path2) throws IOException;
 }

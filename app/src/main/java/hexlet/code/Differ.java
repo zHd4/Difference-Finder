@@ -3,6 +3,7 @@ package hexlet.code;
 import hexlet.code.differs.IDiffer;
 import hexlet.code.differs.JsonDiffer;
 import hexlet.code.differs.YamlDiffer;
+import hexlet.code.formatters.Stylish;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -25,6 +26,6 @@ public class Differ {
             throw new IllegalArgumentException("Supported extensions: .json, .yaml, .yml");
         }
 
-        return availableDiffers.get(extension1).generate(path1, path2);
+        return new Stylish().formatDiff(availableDiffers.get(extension1).generate(path1, path2));
     }
 }
