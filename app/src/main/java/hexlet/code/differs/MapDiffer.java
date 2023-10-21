@@ -18,7 +18,7 @@ public class MapDiffer {
                 difference.put("diff", "added");
                 difference.put("value", map2.get(key));
             } else if (!map2.containsKey(key)) {
-                difference.put("diff", "added");
+                difference.put("diff", "deleted");
                 difference.put("value", map1.get(key));
             } else if (isEqual(map1.get(key), map2.get(key))) {
                 difference.put("diff", "unchanged");
@@ -36,6 +36,6 @@ public class MapDiffer {
     }
 
     private static Boolean isEqual(Object value1, Object value2) {
-        return (value1 == null || value2 == null) ? value1 == value2 : value1.equals(value2);
+        return value1 == null || value2 == null ? value1 == value2 : value1.equals(value2);
     }
 }
