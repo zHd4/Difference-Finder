@@ -24,15 +24,13 @@ public class Plain implements IFormatter{
                 case "deleted" -> result.append("Property '")
                         .append(key)
                         .append("' was removed\n");
-                case "changed" -> {
-                    result.append("Property '")
-                            .append(key)
-                            .append("' was updated. From ")
-                            .append(value)
-                            .append(" to ")
-                            .append(value2)
-                            .append("\n");
-                }
+                case "changed" -> result.append("Property '")
+                        .append(key)
+                        .append("' was updated. From ")
+                        .append(value)
+                        .append(" to ")
+                        .append(value2)
+                        .append("\n");
             }
         }
 
