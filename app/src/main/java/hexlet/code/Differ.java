@@ -1,6 +1,5 @@
 package hexlet.code;
 
-import hexlet.code.differs.Formatter;
 import hexlet.code.differs.IDiffer;
 import hexlet.code.differs.JsonDiffer;
 import hexlet.code.differs.YamlDiffer;
