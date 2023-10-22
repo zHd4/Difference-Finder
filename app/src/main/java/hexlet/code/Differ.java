@@ -4,6 +4,7 @@ import hexlet.code.differs.IDiffer;
 import hexlet.code.differs.JsonDiffer;
 import hexlet.code.differs.YamlDiffer;
 import hexlet.code.formatters.IFormatter;
+import hexlet.code.formatters.Plain;
 import hexlet.code.formatters.Stylish;
 
 import java.io.IOException;
@@ -16,7 +17,8 @@ public class Differ {
             "yml", new YamlDiffer());
 
     private static final Map<String, IFormatter> availableFormatters = Map.of(
-            "stylish", new Stylish()
+            "stylish", new Stylish(),
+            "plain", new Plain()
     );
 
     public static String generate(String path1, String path2, String format) throws IOException {
