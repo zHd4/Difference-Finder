@@ -13,8 +13,8 @@ public class Stylish implements IFormatter{
             String type = String.valueOf(changeMap.get("diff"));
             String key = String.valueOf(changeMap.get("key"));
 
-            String value = valueToString(changeMap.get(changeMap.containsKey("value") ? "value" : "value1"));
-            String value2 = changeMap.containsKey("value2") ? valueToString(changeMap.get("value2")) : null;
+            String value = valueToString(changeMap.getOrDefault("value", changeMap.get("value1")));
+            String value2 = valueToString(changeMap.getOrDefault("value2", null));
 
             switch (type) {
                 case "added" -> result.append("  + ")
