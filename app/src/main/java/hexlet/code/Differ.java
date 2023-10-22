@@ -3,12 +3,11 @@ package hexlet.code;
 import hexlet.code.differs.IDiffer;
 import hexlet.code.differs.JsonDiffer;
 import hexlet.code.differs.YamlDiffer;
+import hexlet.code.formatters.IFormatter;
 import hexlet.code.formatters.Stylish;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Map;
+import java.util.*;
 
 public class Differ {
     private static final Map<String, IDiffer> availableDiffers = Map.of(
@@ -16,16 +15,32 @@ public class Differ {
             "yaml", new YamlDiffer(),
             "yml", new YamlDiffer());
 
-    public static String generate(String path1, String path2) throws IOException {
+    private static final Map<String, IFormatter> availableFormatters = Map.of(
+            "stylish", new Stylish()
+    );
+
+    public static String generate(String path1, String path2, String format) throws IOException {
         String extension1 = new LinkedList<>(Arrays.asList(path1.split("\\."))).getLast();
         String extension2 = new LinkedList<>(Arrays.asList(path2.split("\\."))).getLast();
 
         if (!extension1.equals(extension2) ||
                 !availableDiffers.containsKey(extension1) ||
                 !availableDiffers.containsKey(extension2)) {
-            throw new IllegalArgumentException("Supported extensions: .json, .yaml, .yml");
+            List<String> supportedExtensions = availableDiffers.keySet()
+                    .stream().map(name -> "." + name).toList();
+
+            throw new IllegalArgumentException("Supported extensions: " +
+                    String.join(", ", supportedExtensions));
         }
 
-        return new Stylish().formatDiff(availableDiffers.get(extension1).generate(path1, path2));
+        if (!availableFormatters.containsKey(format)) {
+            throw new IllegalArgumentException("Supported formats: " +
+                    String.join(", ", availableFormatters.keySet()));
+        }
+
+        IDiffer selectedDiffer = availableDiffers.get(extension1);
+        IFormatter selectedFormatter = availableFormatters.get(format);
+
+        return selectedFormatter.formatDiff(selectedDiffer.generate(path1, path2));
     }
 }

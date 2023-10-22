@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.concurrent.Callable;
 import picocli.CommandLine;
 
-@SuppressWarnings({"unused", "FieldMayBeFinal"})
+@SuppressWarnings({"unused", "FieldMayBeFinal", "FieldCanBeLocal"})
 @CommandLine.Command(name = "gendiff",
         description = "Compares two configuration files and shows a difference.",
         mixinStandardHelpOptions = true)
@@ -18,6 +18,7 @@ public class App implements Callable<Integer> {
     private String filePath2;
 
     @CommandLine.Option(names = { "-f", "--format" },
+            defaultValue = "stylish",
             description = "output format [default: stylish]")
     private String format = "stylish";
 
@@ -37,7 +38,7 @@ public class App implements Callable<Integer> {
     @Override
     public Integer call() throws IOException {
         if (this.filePath1 != null && this.filePath2 != null) {
-            System.out.println(Differ.generate(filePath1, filePath2));
+            System.out.println(Differ.generate(filePath1, filePath2, format));
         }
 
         return 0;
