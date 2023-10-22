@@ -1,25 +1,22 @@
 package hexlet.code;
 
+import hexlet.code.differs.Formatter;
 import hexlet.code.differs.IDiffer;
 import hexlet.code.differs.JsonDiffer;
 import hexlet.code.differs.YamlDiffer;
 import hexlet.code.formatters.IFormatter;
-import hexlet.code.formatters.Plain;
-import hexlet.code.formatters.Stylish;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.Map;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Arrays;
 
 public class Differ {
     private static final Map<String, IDiffer> availableDiffers = Map.of(
             "json", new JsonDiffer(),
             "yaml", new YamlDiffer(),
             "yml", new YamlDiffer());
-
-    private static final Map<String, IFormatter> availableFormatters = Map.of(
-            "stylish", new Stylish(),
-            "plain", new Plain()
-    );
 
     public static String generate(String path1, String path2, String format) throws IOException {
         String extension1 = new LinkedList<>(Arrays.asList(path1.split("\\."))).getLast();
@@ -35,13 +32,8 @@ public class Differ {
                     String.join(", ", supportedExtensions));
         }
 
-        if (!availableFormatters.containsKey(format)) {
-            throw new IllegalArgumentException("Supported formats: " +
-                    String.join(", ", availableFormatters.keySet()));
-        }
-
         IDiffer selectedDiffer = availableDiffers.get(extension1);
-        IFormatter selectedFormatter = availableFormatters.get(format);
+        IFormatter selectedFormatter = Formatter.chooseFormatter(format);
 
         return selectedFormatter.formatDiff(selectedDiffer.generate(path1, path2));
     }
