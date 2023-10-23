@@ -8,7 +8,7 @@ import picocli.CommandLine;
 @CommandLine.Command(name = "gendiff",
         description = "Compares two configuration files and shows a difference.",
         mixinStandardHelpOptions = true)
-public class App implements Callable<Integer> {
+public final class App implements Callable<Integer> {
     @CommandLine.Parameters(index = "0", paramLabel = "filepath1",
             description = "path to first file")
     private String filePath1;

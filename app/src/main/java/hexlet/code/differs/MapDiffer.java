@@ -1,6 +1,11 @@
 package hexlet.code.differs;
 
-import java.util.*;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.HashMap;
 
 public class MapDiffer {
     public static List<Map<Object, Object>> diff(Map<Object, Object> map1, Map<Object, Object> map2) {

@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-public class JsonDiffer implements IDiffer{
+public final class JsonDiffer implements IDiffer {
     @Override
     public List<Map<Object, Object>> generate(String path1, String path2) throws IOException {
         Map<Object, Object> map1 = Parser.parseFlatJsonFile(path1);

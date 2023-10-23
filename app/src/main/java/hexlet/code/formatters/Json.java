@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.List;
 import java.util.Map;
 
-public class Json implements IFormatter{
+public final class Json implements IFormatter {
     @Override
     public String formatDiff(List<Map<Object, Object>> diff) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();

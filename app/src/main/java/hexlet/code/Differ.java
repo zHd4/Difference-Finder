@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Arrays;
 
 public class Differ {
-    private static final Map<String, IDiffer> availableDiffers = Map.of(
+    private static final Map<String, IDiffer> AVAILABLE_DIFFERS = Map.of(
             "json", new JsonDiffer(),
             "yaml", new YamlDiffer(),
             "yml", new YamlDiffer());
@@ -21,17 +21,17 @@ public class Differ {
         String extension1 = new LinkedList<>(Arrays.asList(path1.split("\\."))).getLast();
         String extension2 = new LinkedList<>(Arrays.asList(path2.split("\\."))).getLast();
 
-        if (!extension1.equals(extension2) ||
-                !availableDiffers.containsKey(extension1) ||
-                !availableDiffers.containsKey(extension2)) {
-            List<String> supportedExtensions = availableDiffers.keySet()
+        if (!extension1.equals(extension2)
+                || !AVAILABLE_DIFFERS.containsKey(extension1)
+                || !AVAILABLE_DIFFERS.containsKey(extension2)) {
+            List<String> supportedExtensions = AVAILABLE_DIFFERS.keySet()
                     .stream().map(name -> "." + name).toList();
 
-            throw new IllegalArgumentException("Supported extensions: " +
-                    String.join(", ", supportedExtensions));
+            throw new IllegalArgumentException("Supported extensions: "
+                    + String.join(", ", supportedExtensions));
         }
 
-        IDiffer selectedDiffer = availableDiffers.get(extension1);
+        IDiffer selectedDiffer = AVAILABLE_DIFFERS.get(extension1);
         IFormatter selectedFormatter = Formatter.chooseFormatter(format);
 
         return selectedFormatter.formatDiff(selectedDiffer.generate(path1, path2));

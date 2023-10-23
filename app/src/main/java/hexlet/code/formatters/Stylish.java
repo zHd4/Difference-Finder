@@ -3,7 +3,7 @@ package hexlet.code.formatters;
 import java.util.List;
 import java.util.Map;
 
-public class Stylish implements IFormatter{
+public final class Stylish implements IFormatter {
 
     @Override
     public String formatDiff(List<Map<Object, Object>> diff) {
@@ -44,6 +44,8 @@ public class Stylish implements IFormatter{
                         .append(": ")
                         .append(value)
                         .append("\n");
+                default -> {
+                }
             }
         }
 

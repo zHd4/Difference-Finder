@@ -8,18 +8,18 @@ import hexlet.code.formatters.Stylish;
 import java.util.Map;
 
 public class Formatter {
-    private static final Map<String, IFormatter> availableFormatters = Map.of(
+    private static final Map<String, IFormatter> AVAILABLE_FORMATTERS = Map.of(
             "stylish", new Stylish(),
             "plain", new Plain(),
             "json", new Json()
     );
 
     public static IFormatter chooseFormatter(String format) {
-        if (!availableFormatters.containsKey(format)) {
-            throw new IllegalArgumentException("Supported formats: " +
-                    String.join(", ", availableFormatters.keySet()));
+        if (!AVAILABLE_FORMATTERS.containsKey(format)) {
+            throw new IllegalArgumentException("Supported formats: "
+                    + String.join(", ", AVAILABLE_FORMATTERS.keySet()));
         }
 
-        return availableFormatters.get(format);
+        return AVAILABLE_FORMATTERS.get(format);
     }
 }
