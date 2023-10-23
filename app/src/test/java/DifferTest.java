@@ -7,17 +7,17 @@ import java.util.Map;
 import org.junit.jupiter.api.Test;
 
 public class DifferTest {
-    private static final Map<String, String> jsonFilesPaths = Map.of(
+    private static final Map<String, String> JSON_FILES_PATHS = Map.of(
             "file1", "./src/test/resources/file1.json",
             "file2", "./src/test/resources/file2.json"
     );
 
-    private static final Map<String, String> yamlFilesPaths = Map.of(
+    private static final Map<String, String> YAML_FILES_PATHS = Map.of(
             "file1", "./src/test/resources/file1.yml",
             "file2", "./src/test/resources/file2.yml"
     );
 
-    private static final String expectedStylishDiff = """
+    private static final String EXPECTED_STYLISH_DIFF = """
             {
                 chars1: [a, b, c]
               - chars2: [d, e, f]
@@ -44,7 +44,7 @@ public class DifferTest {
               + setting3: none
             }""";
 
-    private static final String expectedPlainDiff = """
+    private static final String EXPECTED_PLAIN_DIFF = """
             Property 'chars2' was updated. From [complex value] to false
             Property 'checked' was updated. From false to true
             Property 'default' was updated. From null to [complex value]
@@ -62,33 +62,33 @@ public class DifferTest {
 
     @Test
     void testJsonStylishDiff() throws IOException {
-        String actual = Differ.generate(jsonFilesPaths.get("file1"),
-                jsonFilesPaths.get("file2"),
+        String actual = Differ.generate(JSON_FILES_PATHS.get("file1"),
+                JSON_FILES_PATHS.get("file2"),
                 "stylish");
-        assertEquals(expectedStylishDiff, actual);
+        assertEquals(EXPECTED_STYLISH_DIFF, actual);
     }
 
     @Test
     void testYamlStylishDiff() throws IOException {
-        String actual = Differ.generate(yamlFilesPaths.get("file1"),
-                yamlFilesPaths.get("file2"),
+        String actual = Differ.generate(YAML_FILES_PATHS.get("file1"),
+                YAML_FILES_PATHS.get("file2"),
                 "stylish");
-        assertEquals(expectedStylishDiff, actual);
+        assertEquals(EXPECTED_STYLISH_DIFF, actual);
     }
 
     @Test
     void testJsonPlainDiff() throws IOException {
-        String actual = Differ.generate(jsonFilesPaths.get("file1"),
-                jsonFilesPaths.get("file2"),
+        String actual = Differ.generate(JSON_FILES_PATHS.get("file1"),
+                JSON_FILES_PATHS.get("file2"),
                 "plain");
-        assertEquals(expectedPlainDiff, actual);
+        assertEquals(EXPECTED_PLAIN_DIFF, actual);
     }
 
     @Test
     void testYamlPlainDiff() throws IOException {
-        String actual = Differ.generate(yamlFilesPaths.get("file1"),
-                yamlFilesPaths.get("file2"),
+        String actual = Differ.generate(YAML_FILES_PATHS.get("file1"),
+                YAML_FILES_PATHS.get("file2"),
                 "plain");
-        assertEquals(expectedPlainDiff, actual);
+        assertEquals(EXPECTED_PLAIN_DIFF, actual);
     }
 }
