@@ -36,7 +36,7 @@ public final class Plain implements IFormatter {
             }
         }
 
-        return result.toString();
+        return result.toString().trim();
     }
 
     private String valueToString(Object value) {
