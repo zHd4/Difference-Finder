@@ -17,6 +17,10 @@ public class Differ {
             "yaml", new YamlDiffer(),
             "yml", new YamlDiffer());
 
+    public static String generate(String path1, String path2) throws IOException {
+        return generate(path1, path2, "stylish");
+    }
+
     public static String generate(String path1, String path2, String format) throws IOException {
         String extension1 = new LinkedList<>(Arrays.asList(path1.split("\\."))).getLast();
         String extension2 = new LinkedList<>(Arrays.asList(path2.split("\\."))).getLast();
