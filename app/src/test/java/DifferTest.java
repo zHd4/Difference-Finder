@@ -49,35 +49,35 @@ public class DifferTest {
         assertEquals(stylishExpected, actual);
     }
 
-//    @Test
-//    void testJsonPlainDiff() throws IOException {
-//        String actual = Differ.generate(JSON_FILES_PATHS.get("file1"),
-//                JSON_FILES_PATHS.get("file2"),
-//                "plain");
-//        assertEquals(plainExpected, actual);
-//    }
-//
-//    @Test
-//    void testYamlPlainDiff() throws IOException {
-//        String actual = Differ.generate(YAML_FILES_PATHS.get("file1"),
-//                YAML_FILES_PATHS.get("file2"),
-//                "plain");
-//        assertEquals(plainExpected, actual);
-//    }
-//
-//    @Test
-//    void testJsonFormatDiff() throws IOException {
-//        String actual = Differ.generate(JSON_FILES_PATHS.get("file1"),
-//                JSON_FILES_PATHS.get("file2"),
-//                "json");
-//        assertEquals(jsonExpected, actual);
-//    }
-//
-//    @Test
-//    void testYamlJsonFormatDiff() throws IOException {
-//        String actual = Differ.generate(YAML_FILES_PATHS.get("file1"),
-//                YAML_FILES_PATHS.get("file2"),
-//                "json");
-//        assertEquals(jsonExpected, actual);
-//    }
+    @Test
+    void testJsonPlainDiff() throws IOException {
+        String actual = Differ.generate(JSON_FILES_PATHS.get("file1"),
+                JSON_FILES_PATHS.get("file2"),
+                "plain");
+        assertEquals(plainExpected, actual);
+    }
+
+    @Test
+    void testYamlPlainDiff() throws IOException {
+        String actual = Differ.generate(YAML_FILES_PATHS.get("file1"),
+                YAML_FILES_PATHS.get("file2"),
+                "plain");
+        assertEquals(plainExpected, actual);
+    }
+
+    @Test
+    void testJsonFormatDiff() throws IOException {
+        String actual = Differ.generate(JSON_FILES_PATHS.get("file1"),
+                JSON_FILES_PATHS.get("file2"),
+                "json");
+        assertEquals(jsonExpected, actual);
+    }
+
+    @Test
+    void testYamlJsonFormatDiff() throws IOException {
+        String actual = Differ.generate(YAML_FILES_PATHS.get("file1"),
+                YAML_FILES_PATHS.get("file2"),
+                "json");
+        assertEquals(jsonExpected, actual);
+    }
 }
