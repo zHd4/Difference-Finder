@@ -45,9 +45,7 @@ public class DifferTest {
 
     @Test
     void testYamlStylishDiff() throws IOException {
-        String actual = Differ.generate(YAML_FILES_PATHS.get("file1"),
-                YAML_FILES_PATHS.get("file2"),
-                "stylish");
+        String actual = Differ.generate(YAML_FILES_PATHS.get("file1"), YAML_FILES_PATHS.get("file2"), "stylish");
         assertEquals(stylishExpected, actual);
     }
 
