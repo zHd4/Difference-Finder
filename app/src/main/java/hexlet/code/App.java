@@ -20,7 +20,7 @@ public final class App implements Callable<Integer> {
     @CommandLine.Option(names = { "-f", "--format" },
             defaultValue = "stylish",
             description = "output format [default: stylish]")
-    private String format = "stylish";
+    private String format;
 
     public static void main(String[] args) {
         int exitCode = new CommandLine(new App()).execute(args);
