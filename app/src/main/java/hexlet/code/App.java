@@ -22,14 +22,6 @@ public final class App implements Callable<Integer> {
             description = "output format [default: stylish]")
     private String format = "stylish";
 
-    @CommandLine.Option(names = { "-h", "--help" }, usageHelp = true,
-            description = "Show this help message and exit.")
-    private boolean helpRequested;
-
-    @CommandLine.Option(names = { "-V", "--version" }, versionHelp = true,
-            description = "Print version information and exit.")
-    private boolean versionRequested;
-
     public static void main(String[] args) {
         int exitCode = new CommandLine(new App()).execute(args);
         System.exit(exitCode);
