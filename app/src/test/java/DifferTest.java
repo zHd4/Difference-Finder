@@ -11,13 +11,13 @@ import org.junit.jupiter.api.Test;
 
 public class DifferTest {
     private static final Map<String, String> JSON_FILES_PATHS = Map.of(
-            "file1", "./src/test/resources/file1.json",
-            "file2", "./src/test/resources/file2.json"
+            "file1", "./src/test/resources/fixtures/file1.json",
+            "file2", "./src/test/resources/fixtures/file2.json"
     );
 
     private static final Map<String, String> YAML_FILES_PATHS = Map.of(
-            "file1", "./src/test/resources/file1.yml",
-            "file2", "./src/test/resources/file2.yml"
+            "file1", "./src/test/resources/fixtures/file1.yml",
+            "file2", "./src/test/resources/fixtures/file2.yml"
     );
 
     private static String stylishExpected;
@@ -25,14 +25,14 @@ public class DifferTest {
     private static String jsonExpected;
 
     @BeforeAll
-    public static void loadResources() throws IOException {
-        stylishExpected = readResource("stylish_expected.txt");
-        plainExpected = readResource("plain_expected.txt");
-        jsonExpected = readResource("json_expected.json");
+    public static void loadFixtures() throws IOException {
+        stylishExpected = readFixture("stylish_expected.txt");
+        plainExpected = readFixture("plain_expected.txt");
+        jsonExpected = readFixture("json_expected.json");
     }
 
-    private static String readResource(String filename) throws IOException {
-        return Files.readString(Path.of("src/test/resources/" + filename));
+    private static String readFixture(String filename) throws IOException {
+        return Files.readString(Path.of("src/test/resources/fixtures/" + filename));
     }
 
     @Test
