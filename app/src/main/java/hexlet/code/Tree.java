@@ -1,4 +1,4 @@
-package hexlet.code.differs;
+package hexlet.code;
 
 import java.util.Map;
 import java.util.ArrayList;
@@ -7,7 +7,7 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.HashMap;
 
-public class MapDiffer {
+public class Tree {
     public static List<Map<Object, Object>> diff(Map<Object, Object> map1, Map<Object, Object> map2) {
         List<Map<Object, Object>> result = new ArrayList<>();
         Set<Object> keys = new TreeSet<>(map1.keySet());

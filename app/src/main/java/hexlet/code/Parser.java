@@ -3,19 +3,26 @@ package hexlet.code;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 
 @SuppressWarnings("unchecked")
 public class Parser {
-    public static Map<Object, Object> parseFlatJsonFile(String filepath) throws IOException {
-        ObjectMapper mapper = new ObjectMapper();
-        return mapper.readValue(new File(filepath), Map.class);
+    public static Map<Object, Object> parse(String content, String format) throws IOException {
+        return switch (format) {
+            case "json" -> parseFlatJson(content);
+            case "yml", "yaml" -> parseFlatYaml(content);
+            default -> throw new IllegalArgumentException("Supported extensions: json, yml, yaml");
+        };
     }
 
-    public static Map<Object, Object> parseFlatYamlFile(String filepath) throws IOException {
+    private static Map<Object, Object> parseFlatJson(String content) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.readValue(content, Map.class);
+    }
+
+    private static Map<Object, Object> parseFlatYaml(String content) throws IOException {
         ObjectMapper mapper = new YAMLMapper();
-        return mapper.readValue(new File(filepath), Map.class);
+        return mapper.readValue(content, Map.class);
     }
 }
