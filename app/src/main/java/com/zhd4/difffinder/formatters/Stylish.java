@@ -1,4 +1,4 @@
-package hexlet.code.formatters;
+package com.zhd4.difffinder.formatters;
 
 import java.util.List;
 import java.util.Map;

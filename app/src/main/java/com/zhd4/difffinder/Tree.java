@@ -1,4 +1,4 @@
-package hexlet.code;
+package com.zhd4.difffinder;
 
 import java.util.Map;
 import java.util.ArrayList;

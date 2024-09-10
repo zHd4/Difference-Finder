@@ -1,4 +1,4 @@
-package hexlet.code;
+package com.zhd4.difffinder;
 
 import java.io.IOException;
 import java.util.concurrent.Callable;

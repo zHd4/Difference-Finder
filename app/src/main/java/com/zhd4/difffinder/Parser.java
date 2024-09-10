@@ -1,4 +1,4 @@
-package hexlet.code;
+package com.zhd4.difffinder;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;

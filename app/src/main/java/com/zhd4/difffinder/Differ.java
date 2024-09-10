@@ -1,6 +1,6 @@
-package hexlet.code;
+package com.zhd4.difffinder;
 
-import hexlet.code.formatters.IFormatter;
+import com.zhd4.difffinder.formatters.IFormatter;
 
 import java.io.IOException;
 import java.nio.file.Files;

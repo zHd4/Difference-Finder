@@ -1,9 +1,9 @@
-package hexlet.code;
+package com.zhd4.difffinder;
 
-import hexlet.code.formatters.IFormatter;
-import hexlet.code.formatters.Json;
-import hexlet.code.formatters.Plain;
-import hexlet.code.formatters.Stylish;
+import com.zhd4.difffinder.formatters.IFormatter;
+import com.zhd4.difffinder.formatters.Json;
+import com.zhd4.difffinder.formatters.Plain;
+import com.zhd4.difffinder.formatters.Stylish;
 
 public class Formatter {
     public static IFormatter chooseFormatter(String format) {
