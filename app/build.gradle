@@ -4,7 +4,7 @@ plugins {
     id 'jacoco'
 }
 
-group = 'com.zhd4.difffinder'
+group = 'app.difffinder'
 version = '1.0-SNAPSHOT'
 
 repositories {
@@ -12,7 +12,7 @@ repositories {
 }
 
 application {
-    mainClass = 'com.zhd4.difffinder.App'
+    mainClass = 'app.difffinder.App'
 }
 
 checkstyle {
