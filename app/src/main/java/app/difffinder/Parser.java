@@ -1,4 +1,4 @@
-package com.zhd4.difffinder;
+package app.difffinder;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;

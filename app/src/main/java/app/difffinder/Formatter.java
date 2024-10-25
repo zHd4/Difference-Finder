@@ -1,9 +1,9 @@
-package com.zhd4.difffinder;
+package app.difffinder;
 
-import com.zhd4.difffinder.formatters.IFormatter;
-import com.zhd4.difffinder.formatters.Json;
-import com.zhd4.difffinder.formatters.Plain;
-import com.zhd4.difffinder.formatters.Stylish;
+import app.difffinder.formatters.IFormatter;
+import app.difffinder.formatters.Json;
+import app.difffinder.formatters.Plain;
+import app.difffinder.formatters.Stylish;
 
 public class Formatter {
     public static IFormatter chooseFormatter(String format) {

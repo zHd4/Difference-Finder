@@ -1,6 +1,6 @@
-package com.zhd4.difffinder;
+package app.difffinder;
 
-import com.zhd4.difffinder.formatters.IFormatter;
+import app.difffinder.formatters.IFormatter;
 
 import java.io.IOException;
 import java.nio.file.Files;

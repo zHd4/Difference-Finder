@@ -1,6 +1,6 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.zhd4.difffinder.Differ;
+import app.difffinder.Differ;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;

@@ -1,4 +1,4 @@
-package com.zhd4.difffinder.formatters;
+package app.difffinder.formatters;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

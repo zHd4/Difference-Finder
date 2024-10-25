@@ -1,4 +1,4 @@
-package com.zhd4.difffinder;
+package app.difffinder;
 
 import java.io.IOException;
 import java.util.concurrent.Callable;

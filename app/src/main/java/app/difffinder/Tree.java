@@ -1,4 +1,4 @@
-package com.zhd4.difffinder;
+package app.difffinder;
 
 import java.util.Map;
 import java.util.ArrayList;
